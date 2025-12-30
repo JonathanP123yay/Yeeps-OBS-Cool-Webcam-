@@ -1,7 +1,0 @@
-{
-  "room": "Models/room.glb",
-  "headset": "Models/quest2.glb",
-  "controllers": "Models/controllers/quest2_controller.glb",
-  "headset_color": "#ffffff",
-  "controller_color": "#ffffff"
-}
