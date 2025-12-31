@@ -13,24 +13,24 @@ HEADSET_LOWER=$(echo "$HEADSET" | tr '[:upper:]' '[:lower:]')
 # Map headset to GitHub raw URLs
 case "$HEADSET_LOWER" in
   "2")
-    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/quest2.glb"
+    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/quest2.glb"
     MODEL_NAME="Quest 2"
     ;;
   "pro")
-    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/questpro.glb"
+    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/questpro.glb"
     MODEL_NAME="Quest Pro"
     ;;
   "3")
-    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/quest3.glb"
+    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/quest3.glb"
     MODEL_NAME="Quest 3"
     ;;
   "3s")
-    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/quest3s.glb"
+    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/quest3s.glb"
     MODEL_NAME="Quest 3S"
     ;;
   *)
     echo "Unknown headset type. Defaulting to Quest 2."
-    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/quest2.glb"
+    MODEL_URL="https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/quest2.glb"
     MODEL_NAME="Quest 2"
     ;;
 esac
@@ -46,20 +46,20 @@ if [ "$HEADSET_LOWER" == "2" ]; then
   TOUCH_LOWER=$(echo "$TOUCH" | tr '[:upper:]' '[:lower:]')
   if [ "$TOUCH_LOWER" == "y" ]; then
     echo "Downloading Quest 2 Touch Controllers..."
-    curl -L -o Models/controller.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/controllers/quest2_controller.glb
+    curl -L -o Models/controller.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/controllers/quest2_controller.glb
   else
     echo "Ok, We will use the ring controllers."
   fi
 else
   echo "Downloading $MODEL_NAME controllers..."
-  curl -L -o Models/controller.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/controllers/default_controller.glb
+  curl -L -o Models/controller.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/controllers/default_controller.glb
 fi
 
 # --- Step 2: Room Model ---
 read -p "What is the path to the room 3D model you are going to use (.glb, .stl, or .obj)? " ROOM_PATH
 if [ ! -f "$ROOM_PATH" ]; then
   echo "Room model not found at $ROOM_PATH. Downloading default room model from GitHub..."
-  curl -L -o Models/room.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/Models/room.glb
+  curl -L -o Models/room.glb https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/Models/room.glb
 else
   cp "$ROOM_PATH" Models/room.glb
 fi
@@ -86,7 +86,7 @@ SRC_FILES=("helper.js" "obs_scene_creator.py")  # Add more as needed
 
 for FILE in "${SRC_FILES[@]}"; do
   echo "Downloading $FILE..."
-  curl -L -o "$SOFTWARE_PATH/src/$FILE" "https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Cool-Webcam-/HEAD/src/$FILE"
+  curl -L -o "$SOFTWARE_PATH/src/$FILE" "https://raw.githubusercontent.com/JonathanP123YAY/Yeeps-OBS-Webcam/HEAD/src/$FILE"
 done
 
 # Make scripts executable
@@ -99,3 +99,4 @@ echo "Software files stored in: $SOFTWARE_PATH"
 echo "OBS path set to: $OBS_PATH"
 echo "You can now open the project in Unity or your preferred engine."
 echo "=============================================="
+
